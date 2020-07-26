@@ -31,10 +31,10 @@ gazelle_dependencies()
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
-    name = "com_github_googlecodelabs_tools",
-    sha256 = "8992b65ec5d98725352601b6fbbbf9585fa784a03c02e8dd927b23da3a84d39f",
-    strip_prefix = "claat-2.2.1",
-    urls = ["https://github.com/fabstu/claat/archive/v2.2.1.zip"],
+    name = "dev_aduu_rules_claat",
+    sha256 = "6b72bebeff6ff2280ff08512fa92fb1b95120c2e9d18dceee8288ecd19123dcf",
+    strip_prefix = "rules_claat-0.1.1",
+    urls = ["https://github.com/aduu-dev/rules_claat/archive/v0.1.1.zip"],
 )
 
 load("//:claat.bzl", "claat_dependencies")
@@ -46,7 +46,7 @@ claat_dependencies()
 Inside BUILD.bazel:
 
 ```s
-load("@com_github_googlecodelabs_tools//claat:claat.bzl", "claat")
+load("@dev_aduu_rules_claat//:claat.bzl", "claat")
 
 filegroup(
     name = "example-mds",
@@ -64,10 +64,10 @@ claat(
 Build and list result:
 
 ```sh
-bazel build //claat:examples # BUILD.bazel above is located in //claat here.
+bazel build //examples:examples # BUILD.bazel above is located in //examples here.
 
-# /claat/examples.tar comes from the fact that we are inside //claat and we created //claat:example.tar
-ls $(bazel info bazel-genfiles)/claat/examples.tar
+# /claat/examples.tar comes from the fact that we are inside //examples and we created //examples:example.tar
+ls $(bazel info bazel-genfiles)/examples/examples.tar
 # Output:
-# bazel-out/darwin-fastbuild/bin/claat/examples.tar
+#   bazel-out/darwin-fastbuild/bin/examples/examples.tar
 ```
