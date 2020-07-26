@@ -8,7 +8,7 @@ Inside WORKSPACE:
 
 ```s
 # Only in case you haven't included rules_go and gazelle yet.
-load("//:go.bzl", "claat_go_dependencies")
+load("@dev_aduu_rules_claat//:go.bzl", "claat_go_dependencies")
 
 claat_go_dependencies()
 
@@ -37,7 +37,7 @@ http_archive(
     urls = ["https://github.com/aduu-dev/rules_claat/archive/v0.1.1.zip"],
 )
 
-load("//:claat.bzl", "claat_dependencies")
+load("@dev_aduu_rules_claat//:claat.bzl", "claat_dependencies")
 
 claat_dependencies()
 
