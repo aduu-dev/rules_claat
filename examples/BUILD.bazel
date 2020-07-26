@@ -1,0 +1,13 @@
+load("//:claat.bzl", "claat")
+
+filegroup(
+    name = "example-mds",
+    srcs = ["example.md"],
+)
+
+claat(
+    name = "examples",
+    srcs = [
+        ":example-mds",
+    ],
+)
